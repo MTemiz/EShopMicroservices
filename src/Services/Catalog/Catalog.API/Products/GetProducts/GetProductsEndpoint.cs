@@ -1,29 +1,24 @@
-﻿using System;
+﻿namespace Catalog.API.Products.GetProducts;
 
-namespace Catalog.API.Products.GetProducts
+public record GetProductsResponse(IEnumerable<Product> Products);
+
+public class GetProductsEndpoint : ICarterModule
 {
-    //public record GetProductsQuery();
-
-    public record GetProductsResponse(IEnumerable<Product> products);
-
-    public class GetProductsEndpoint : ICarterModule
+    public void AddRoutes(IEndpointRouteBuilder app)
     {
-        public void AddRoutes(IEndpointRouteBuilder app)
+        app.MapGet("/products", async (ISender sender) =>
         {
-            app.MapGet("/products", async (ISender sender) =>
-            {
-                var result = await sender.Send(new GetProductsQuery());
+            var result = await sender.Send(new GetProductsQuery());
 
-                var response = result.Adapt<GetProductsResponse>();
+            var response = result.Adapt<GetProductsResponse>();
 
-                return Results.Ok(response);
-            })
-                .WithName("GetProducts")
-                .Produces<GetProductsResponse>(StatusCodes.Status200OK)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithDescription("Get Products")
-                .WithSummary("Get Products");
-        }
+            return Results.Ok(response);
+        })
+            .WithName("GetProducts")
+            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithDescription("Get Products")
+            .WithSummary("Get Products");
     }
 }
 

@@ -1,11 +1,9 @@
 ﻿
-using System;
+namespace Catalog.API.Products.GetProducts;
 
-namespace Catalog.API.Products.GetProducts
-{
     public record GetProductsQuery : IQuery<GetProductsResult>;
 
-    public record GetProductsResult(IEnumerable<Product> products);
+    public record GetProductsResult(IEnumerable<Product> Products);
 
     internal class GetProductsQueryHandler(IDocumentSession session, ILogger<GetProductsQueryHandler> logger) : IQueryHandler<GetProductsQuery, GetProductsResult>
     {
@@ -18,5 +16,4 @@ namespace Catalog.API.Products.GetProducts
             return new GetProductsResult(products);
         }
     }
-}
 
