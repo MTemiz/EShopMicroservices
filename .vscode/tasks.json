@@ -76,18 +76,6 @@
         },
         {
             "type": "docker-run",
-            "label": "docker-run: debug",
-            "dependsOn": [
-                "docker-build: debug"
-            ],
-            "dockerRun": {},
-            "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj",
-                "enableDebugging": true
-            }
-        },
-        {
-            "type": "docker-run",
             "label": "docker-run: release",
             "dependsOn": [
                 "docker-build: release"
@@ -103,6 +91,12 @@
             "file": "/Users/mesut/Projects/EShopMicroservices/src/Services/Basket/Basket.Api/Basket.Api.csproj",
             "problemMatcher": [],
             "label": "dotnet: watch Basket.Api"
+        },
+        {
+            "label": "docker-compose-up",
+            "type": "process",
+            "command": "docker-compose  -f docker-compose.yml -f docker-compose.override.yml up -d —-build",
+            "problemMatcher": []
         }
     ]
 }

@@ -9,9 +9,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-COPY localhost.crt /etc/ssl/certs/localhost.crt
-COPY localhost.key /etc/ssl/private/localhost.key
-
 COPY ["Services/Catalog/Catalog.API/Catalog.API.csproj", "Services/Catalog/Catalog.API/"]
 COPY ["BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/"]
 RUN dotnet restore "Services/Catalog/Catalog.API/Catalog.API.csproj"
