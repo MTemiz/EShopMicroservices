@@ -96,6 +96,13 @@
             "netCore": {
                 "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj"
             }
+        },
+        {
+            "type": "dotnet",
+            "task": "watch Basket.Api",
+            "file": "/Users/mesut/Projects/EShopMicroservices/src/Services/Basket/Basket.Api/Basket.Api.csproj",
+            "problemMatcher": [],
+            "label": "dotnet: watch Basket.Api"
         }
     ]
 }
