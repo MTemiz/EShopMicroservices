@@ -94,8 +94,9 @@
         },
         {
             "label": "docker-compose-up",
-            "type": "process",
-            "command": "docker-compose  -f docker-compose.yml -f docker-compose.override.yml up -d —-build",
+            "command": "cd ${workspaceFolder}/src && docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build",
+            "args": [],
+            "type": "shell",
             "problemMatcher": []
         }
     ]
