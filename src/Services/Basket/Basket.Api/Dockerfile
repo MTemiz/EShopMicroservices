@@ -1,0 +1,32 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+#HTTP PORT
+EXPOSE 8000
+
+#HTTPS PORT
+EXPOSE 8001
+
+USER app
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["Services/Basket/Basket.Api/Basket.Api.csproj", "Services/Basket/Basket.Api/"]
+COPY ["BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/"]
+RUN dotnet restore "Services/Basket/Basket.Api/Basket.Api.csproj"
+COPY . .
+WORKDIR "/src/Services/Basket/Basket.Api"
+RUN dotnet build "Basket.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "Basket.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+RUN apt-get update
+RUN apt-get install -y unzip
+RUN curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l /vsdbg
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+COPY --from=publish /vsdbg /vsdbg
+ENTRYPOINT ["dotnet", "Basket.Api.dll"]
