@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddGrpc();
 builder.Services.AddDbContext<DiscountContext>(options =>
 {
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<DiscountContext>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseMigration();
 app.MapGrpcService<DiscountService>();
 
 app.Run();
