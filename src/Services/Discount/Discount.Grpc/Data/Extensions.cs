@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Discount.Grpc.Data;
 
-public static class Extensions  
+public static class Extensions
 {
     public static IApplicationBuilder UseMigration(this IApplicationBuilder builder)
     {
@@ -10,7 +10,7 @@ public static class Extensions
 
         using var dbContext = scope.ServiceProvider.GetRequiredService<DiscountContext>();
 
-        dbContext.Database.MigrateAsync();
+        dbContext.Database.Migrate();
 
         return builder;
     }

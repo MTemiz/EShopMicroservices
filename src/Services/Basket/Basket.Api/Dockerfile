@@ -21,12 +21,12 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "Basket.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-RUN apt-get update
-RUN apt-get install -y unzip
-RUN curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l /vsdbg
+#RUN apt-get update
+#RUN apt-get install -y unzip
+#RUN curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l /vsdbg
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY --from=publish /vsdbg /vsdbg
+#COPY --from=publish /vsdbg /vsdbg
 ENTRYPOINT ["dotnet", "Basket.Api.dll"]
