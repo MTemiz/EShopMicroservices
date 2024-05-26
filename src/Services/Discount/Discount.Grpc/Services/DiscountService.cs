@@ -31,7 +31,7 @@ public class DiscountService(DiscountContext dbContext, ILogger<DiscountService>
 
     public override async Task<CouponModel> CreateDiscount(CreateDiscountRequest request, ServerCallContext context)
     {
-        var coupon = request.Adapt<Coupon>();
+        var coupon = request.Coupon.Adapt<Coupon>();
 
         if (coupon is null)
         {
