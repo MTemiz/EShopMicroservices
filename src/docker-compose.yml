@@ -1,5 +1,7 @@
 version: '3.4'
 
+name: EShopMicroServices
+
 services:
   catalogdb:
     image: postgres

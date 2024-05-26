@@ -13,7 +13,7 @@ COPY ["Services/Discount/Discount.Grpc/Discount.Grpc.csproj", "Services/Discount
 RUN dotnet restore "./Services/Discount/Discount.Grpc/Discount.Grpc.csproj"
 COPY . .
 WORKDIR "/src/Services/Discount/Discount.Grpc"
-RUN dotnet build "./Discount.Grpc.csproj" -c $configuration -o /app/build
+RUN dotnet build "Discount.Grpc.csproj" -c $configuration -o /app/build
 
 FROM build AS publish
 ARG configuration=Release

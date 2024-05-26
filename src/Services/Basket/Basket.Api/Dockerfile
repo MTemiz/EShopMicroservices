@@ -6,7 +6,6 @@ EXPOSE 8000
 #HTTPS PORT
 EXPOSE 8001
 
-USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
