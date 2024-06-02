@@ -70,9 +70,11 @@ services:
       - ConnectionStrings__Redis=distributedcache:6379
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
       - ASPNETCORE_Kestrel__Certificates__Default__Password=1
+      - GrpcSettings__DiscountUrl=https://discount.grpc:8081
     depends_on:
       - basketdb
       - distributedcache
+      - discount.grpc
     ports:
       - "6001:8080"
       - "6061:8081"
