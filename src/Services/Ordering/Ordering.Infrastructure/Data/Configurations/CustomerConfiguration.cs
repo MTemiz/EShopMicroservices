@@ -1,4 +1,4 @@
-namespace Ordering.Inftrastructure.Data.Configurations;
+namespace Ordering.Infrastructure.Data.Configurations;
 
 public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
 {

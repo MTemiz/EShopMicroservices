@@ -6,4 +6,7 @@ global using Ordering.Domain.Enums;
 global using System.Reflection;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-global using Ordering.Inftrastructure.Data;
+global using Ordering.Infrastructure.Data;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Ordering.Domain;
+global using Ordering.Infrastructure.Data.Interceptors;

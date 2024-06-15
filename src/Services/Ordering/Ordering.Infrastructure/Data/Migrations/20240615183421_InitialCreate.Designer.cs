@@ -6,14 +6,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Ordering.Inftrastructure.Data;
+using Ordering.Infrastructure.Data;
 
 #nullable disable
 
 namespace Ordering.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240615171102_InitialCreate")]
+    [Migration("20240615183421_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
