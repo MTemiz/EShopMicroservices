@@ -16,6 +16,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
     <PackageReference Include="Carter" Version="8.0.0" />
     <PackageReference Include="Marten" Version="6.4.1" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Products\GetProducts\" />
