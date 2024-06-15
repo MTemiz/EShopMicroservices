@@ -5,3 +5,7 @@ Discount            5002 - 5052     6002 - 6062     8080 - 8081
 Ordering            6003 - 5053     6003 - 6063     8080 - 8081
 
 ASP.NET Core ports are listed as http / https for running application
+
+
+Migration command
+dotnet ef migrations add {{migration_name}} --context ApplicationDbContext --output-dir Data/Migrations -p Ordering.Infrastructure.csproj -s ../Ordering.Api/Ordering.Api.csproj
