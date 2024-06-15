@@ -1,7 +1,3 @@
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using Ordering.Domain.Models;
-
 namespace Ordering.Inftrastructure.Data;
 
 public class ApplicationDbContext : DbContext
@@ -17,7 +13,7 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-       
+
         base.OnModelCreating(builder);
     }
 

@@ -13,7 +13,7 @@ builder.Services
 
 var app = builder.Build();
 
-app.AddApiServices();
+//app.AddApiServices();
 
 // configure the http request pipeline
 
