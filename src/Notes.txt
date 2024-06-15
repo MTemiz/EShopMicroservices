@@ -9,3 +9,6 @@ ASP.NET Core ports are listed as http / https for running application
 
 Migration command
 dotnet ef migrations add {{migration_name}} --context ApplicationDbContext --output-dir Data/Migrations -p Ordering.Infrastructure.csproj -s ../Ordering.Api/Ordering.Api.csproj
+
+Database update command
+dotnet ef database update --context ApplicationDbContext -s ../Ordering.Api/Ordering.Api.csproj -p Ordering.Infrastructure.csproj
