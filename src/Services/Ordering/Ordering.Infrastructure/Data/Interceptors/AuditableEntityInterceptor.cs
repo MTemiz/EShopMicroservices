@@ -10,6 +10,12 @@ public class AuditableEntityInterceptor : SaveChangesInterceptor
         return base.SavingChanges(eventData, result);
     }
 
+    public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
+    {
+        UpdateEntities(eventData.Context);
+        return base.SavingChangesAsync(eventData, result, cancellationToken);
+    }
+
     private void UpdateEntities(DbContext? context)
     {
         if (context is null)
@@ -31,11 +37,6 @@ public class AuditableEntityInterceptor : SaveChangesInterceptor
                 entry.Entity.LastModifiedBy = "mst";
             }
         }
-    }
-
-    public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
-    {
-        return base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 }
 
