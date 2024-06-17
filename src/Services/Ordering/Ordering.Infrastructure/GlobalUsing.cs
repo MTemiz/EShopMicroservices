@@ -11,3 +11,4 @@ global using Microsoft.EntityFrameworkCore.Diagnostics;
 global using Ordering.Domain;
 global using Ordering.Infrastructure.Data.Interceptors;
 global using MediatR;
+global using Ordering.Application.Data;
