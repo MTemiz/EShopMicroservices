@@ -13,7 +13,7 @@ using Ordering.Infrastructure.Data;
 namespace Ordering.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240615183421_InitialCreate")]
+    [Migration("20240618203858_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -248,7 +248,7 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItemss");
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("Ordering.Domain.Models.Product", b =>
