@@ -4,14 +4,14 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApiServices(this IServiceCollection services)
     {
-        //services.AddCarter();
+        services.AddCarter();
 
         return services;
     }
 
     public static WebApplication AddApiServices(this WebApplication app)
     {
-        //services.AddCarter();
+        app.MapCarter();
 
         return app;
     }
