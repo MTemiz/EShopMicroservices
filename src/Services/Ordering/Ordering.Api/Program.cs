@@ -1,8 +1,3 @@
-using Ordering.Application;
-using Ordering.Api;
-using Ordering.Infrastructure;
-using Ordering.Infrastructure.Data.Extensions;
-
 var builder = WebApplication.CreateBuilder();
 
 // Add services to the container
@@ -10,7 +5,7 @@ var builder = WebApplication.CreateBuilder();
 builder.Services
 .AddApplicationServices()
 .AddInfrastructureServices(builder.Configuration)
-.AddApiServices();
+.AddApiServices(builder.Configuration);
 
 var app = builder.Build();
 
