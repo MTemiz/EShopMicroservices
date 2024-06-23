@@ -1,4 +1,4 @@
-using Microsoft.FeatureManagement;
+    using Microsoft.FeatureManagement;
 
 namespace Ordering.Application.Orders.EventHandlers.Domain;
 
