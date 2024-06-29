@@ -42,6 +42,12 @@ services:
       context: .
       dockerfile: Services/Ordering/Ordering.Api/Dockerfile
 
+  yarpapigateway:
+    image: ${DOCKER_REGISTRY-}yarpapigateway
+    build:
+      context: .
+      dockerfile: ApiGateways/YarpApiGateway/Dockerfile
+
   pgadmin:
     image: dpage/pgadmin4:latest
 
