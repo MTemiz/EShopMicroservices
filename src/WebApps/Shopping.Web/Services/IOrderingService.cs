@@ -10,6 +10,6 @@ public interface IOrderingService
     [Get("/ordering-service/orders/{orderName}")]
     Task<GetOrdersByNameResponse> GetOrdersByName(string orderName);
 
-    [Get("/ordering-service/orders/customers/{customerId}}")]
+    [Get("/ordering-service/orders/customer/{customerId}")]
     Task<GetOrdersByCustomerResponse> GetOrdersByCustomer(Guid customerId);
 }
